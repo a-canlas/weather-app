@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/a-canlas/react-boilerplate/issues"
   },
-  "homepage": "https://github.com/a-canlas/react-boilerplate#readme"
+  "homepage": "https://github.com/a-canlas/react-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
