@@ -3,10 +3,14 @@ This is my react-boilerplate for future personal projects
 
 ### Setup
 1. Install all required dependencies
-```npm install```
+
+```npm install
+```
 
 2. Start the application
-``` npm run dev```
+
+```npm run dev
+```
 
 3. Go to localhost:3000 in your browser
 
