@@ -26,7 +26,7 @@ class SearchForm extends React.Component {
       <React.Fragment>
         <form onSubmit={this.handleSubmit}>
           <input type="text" id="city" name="city" value={this.state.city} onChange={this.updateText}></input>
-          <button type="button" id="submitBtn" onClick={() => { console.log('I was clicked'); } }>Submit</button>
+          <button type="submit" id="submitBtn">Submit</button>
         </form>
       </React.Fragment>
     );
