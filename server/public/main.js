@@ -158,7 +158,13 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       name: "city",
       value: this.state.city,
       onChange: this.updateText
-    })));
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      id: "submitBtn",
+      onClick: () => {
+        console.log('I was clicked');
+      }
+    }, "Submit")));
   }
 
 }
