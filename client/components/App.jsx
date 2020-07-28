@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchForm from './SearchForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,7 +11,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <p>Weather App</p>
+      <React.Fragment>
+        <p>Weather App</p>
+        <SearchForm/>
+      </React.Fragment>
     );
   }
 }
