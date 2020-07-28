@@ -7,6 +7,7 @@ class SearchForm extends React.Component {
       city: ''
     };
     this.updateText = this.updateText.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateText(e) {
@@ -14,10 +15,16 @@ class SearchForm extends React.Component {
     this.setState({ [name]: value });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const wrappedCity = this.state.city;
+    this.props.receiveCity(wrappedCity);
+  }
+
   render() {
     return (
       <React.Fragment>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input type="text" id="city" name="city" value={this.state.city} onChange={this.updateText}></input>
           <button type="button" id="submitBtn" onClick={() => { console.log('I was clicked'); } }>Submit</button>
         </form>

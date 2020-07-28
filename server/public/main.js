@@ -107,10 +107,18 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     this.state = {
       weatherData: []
     };
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch(city) {
+    // eslint-disable-next-line no-console
+    console.log('I received the city info: ', city);
   }
 
   render() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      receiveCity: this.handleSearch
+    }));
   }
 
 }
@@ -139,6 +147,7 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       city: ''
     };
     this.updateText = this.updateText.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateText(e) {
@@ -151,8 +160,16 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
     });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const wrappedCity = this.state.city;
+    this.props.receiveCity(wrappedCity);
+  }
+
   render() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      onSubmit: this.handleSubmit
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "text",
       id: "city",
       name: "city",
