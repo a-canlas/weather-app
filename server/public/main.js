@@ -86,6 +86,20 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/apis.js":
+/*!************************!*\
+  !*** ./client/apis.js ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  weather: '10652c188d36f533cf5f0998f1211b71'
+};
+
+
+/***/ }),
+
 /***/ "./client/components/App.jsx":
 /*!***********************************!*\
   !*** ./client/components/App.jsx ***!
@@ -98,6 +112,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _SearchForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchForm */ "./client/components/SearchForm.jsx");
+/* harmony import */ var _apis__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../apis */ "./client/apis.js");
+/* harmony import */ var _apis__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apis__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -111,8 +128,9 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   handleSearch(city) {
-    // eslint-disable-next-line no-console
-    console.log('I received the city info: ', city);
+    const key = _apis__WEBPACK_IMPORTED_MODULE_2___default.a.weather;
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=imperial`;
+    fetch(url).then(result => result.json()).then(result => console.log(result)).catch(err => console.error(err));
   }
 
   render() {

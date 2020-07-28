@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchForm from './SearchForm';
+import apiKey from '../apis';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,8 +12,13 @@ class App extends React.Component {
   }
 
   handleSearch(city) {
-    // eslint-disable-next-line no-console
-    console.log('I received the city info: ', city);
+    const key = apiKey.weather;
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=imperial`;
+    fetch(url)
+      .then(result => result.json())
+      .then(result => console.log(result))
+      .catch(err => console.error(err));
+
   }
 
   render() {
