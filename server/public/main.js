@@ -122,7 +122,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weatherData: []
+      weatherData: null
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
@@ -130,7 +130,11 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   handleSearch(city) {
     const key = _apis__WEBPACK_IMPORTED_MODULE_2___default.a.weather;
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=imperial`;
-    fetch(url).then(result => result.json()).then(result => console.log(result)).catch(err => console.error(err));
+    fetch(url).then(result => result.json()).then(result => {
+      this.setState({
+        weatherData: result
+      });
+    }).catch(err => console.error(err));
   }
 
   render() {

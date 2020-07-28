@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weatherData: []
+      weatherData: null
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
@@ -16,7 +16,9 @@ class App extends React.Component {
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=imperial`;
     fetch(url)
       .then(result => result.json())
-      .then(result => console.log(result))
+      .then(result => {
+        this.setState({ weatherData: result });
+      })
       .catch(err => console.error(err));
 
   }
