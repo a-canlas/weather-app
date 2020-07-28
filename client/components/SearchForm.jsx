@@ -18,6 +18,9 @@ class SearchForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const wrappedCity = this.state.city;
+    if (!wrappedCity) {
+      return;
+    }
     this.props.receiveCity(wrappedCity);
   }
 

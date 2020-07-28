@@ -163,6 +163,11 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
   handleSubmit(e) {
     e.preventDefault();
     const wrappedCity = this.state.city;
+
+    if (!wrappedCity) {
+      return;
+    }
+
     this.props.receiveCity(wrappedCity);
   }
 
