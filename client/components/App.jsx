@@ -6,14 +6,16 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weatherData: null
+      weatherData: null,
+      isCelsius: false
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleSearch(city) {
     const key = apiKey.weather;
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=imperial`;
+    const unit = this.state.isCelsius ? 'metric' : 'imperial';
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${unit}`;
     fetch(url)
       .then(result => result.json())
       .then(result => {
