@@ -13,6 +13,10 @@ class App extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
+  componentDidMount() {
+    this.handleSearch('torrance');
+  }
+
   handleSearch(city) {
     const key = apiKey.weather;
     const unit = this.state.isCelsius ? 'metric' : 'imperial';
@@ -27,11 +31,24 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.weatherData === null) {
+      return (
+        <React.Fragment>
+          <p>Weather App</p>
+          <SearchForm receiveCity={this.handleSearch}/>
+          <p>Enter a city in the input above</p>
+        </React.Fragment>
+      );
+    }
+    const location = this.state.weatherData.name;
+    const description = this.state.weatherData.weather[0].main;
+    const temp = this.state.weatherData.main.temp;
+    const unit = this.state.isCelsius ? 'C' : 'F';
     return (
       <React.Fragment>
         <p>Weather App</p>
         <SearchForm receiveCity={this.handleSearch}/>
-        <Forecast />
+        <Forecast location={location} description={description} temp={temp} unit={unit}/>
       </React.Fragment>
     );
   }
