@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchForm from './SearchForm';
+import Forecast from './Forecast';
 import apiKey from '../apis';
 
 class App extends React.Component {
@@ -30,6 +31,7 @@ class App extends React.Component {
       <React.Fragment>
         <p>Weather App</p>
         <SearchForm receiveCity={this.handleSearch}/>
+        <Forecast />
       </React.Fragment>
     );
   }
