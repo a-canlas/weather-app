@@ -130,10 +130,6 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  componentDidMount() {
-    this.handleSearch('torrance');
-  }
-
   handleSearch(city) {
     const key = _apis__WEBPACK_IMPORTED_MODULE_3___default.a.weather;
     const unit = this.state.isCelsius ? 'metric' : 'imperial';

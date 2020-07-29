@@ -13,10 +13,6 @@ class App extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  componentDidMount() {
-    this.handleSearch('torrance');
-  }
-
   handleSearch(city) {
     const key = apiKey.weather;
     const unit = this.state.isCelsius ? 'metric' : 'imperial';
