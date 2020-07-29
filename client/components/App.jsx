@@ -47,6 +47,12 @@ class App extends React.Component {
         <Forecast location={location} description={description} temp={temp} unit={unit}/>
       </React.Fragment>
     );
+    // return (
+    //   <React.Fragment>
+    //     <p>Weather App</p>
+    //     <SearchForm receiveCity={this.handleSearch}/>
+    //   </React.Fragment>
+    // );
   }
 }
 

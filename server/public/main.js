@@ -159,7 +159,12 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       description: description,
       temp: temp,
       unit: unit
-    }));
+    })); // return (
+    //   <React.Fragment>
+    //     <p>Weather App</p>
+    //     <SearchForm receiveCity={this.handleSearch}/>
+    //   </React.Fragment>
+    // );
   }
 
 }
