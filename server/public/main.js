@@ -236,6 +236,9 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
     }
 
     this.props.receiveCity(wrappedCity);
+    this.setState({
+      city: ''
+    });
   }
 
   render() {
