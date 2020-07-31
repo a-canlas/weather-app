@@ -155,12 +155,13 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Enter a city in the input above"));
     }
 
-    const five = [...this.state.fiveDay]; // const unit = this.state.isCelsius ? 'C' : 'F';
-
+    const five = [...this.state.fiveDay];
+    const unit = this.state.isCelsius ? 'C' : 'F';
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
       receiveCity: this.handleSearch
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Forecast__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      five: five
+      five: five,
+      unit: unit
     })); // return (
     //   <React.Fragment>
     //     <p>Weather App</p>
@@ -189,7 +190,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Day(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "I am a day");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.temp, "\xB0 ", props.unit, " | Humidity: ", props.humidity, "%"));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Day);
@@ -221,7 +222,11 @@ class Forecast extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     const list = this.props.five;
     const dayElems = list.map((day, i) => {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Day__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        key: i
+        key: i,
+        description: day.weather[0].main,
+        temp: day.main.temp,
+        unit: this.props.unit,
+        humidity: day.main.humidity
       });
     });
     return dayElems;

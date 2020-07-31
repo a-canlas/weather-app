@@ -2,7 +2,10 @@ import React from 'react';
 
 function Day(props) {
   return (
-    <p>I am a day</p>
+    <div>
+      <h3>{props.description}</h3>
+      <p>{props.temp}&deg; {props.unit} &#124; Humidity: {props.humidity}&#37;</p>
+    </div>
   );
 }
 
