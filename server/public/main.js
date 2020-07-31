@@ -240,7 +240,9 @@ class Forecast extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       className: "container"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "display-1 jumbotron"
-    }, "Forecast for ", this.props.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "5 Day Forecast"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+      className: "display-4 text-muted"
+    }, this.props.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "row justify-content-center"
     }, this.addDays())));
   }
