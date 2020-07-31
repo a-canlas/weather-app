@@ -10,7 +10,8 @@ class Forecast extends React.Component {
   addDays() {
     const list = this.props.five;
     const dayElems = list.map((day, i) => {
-      return <Day key={i} description={day.weather[0].main} temp={day.main.temp} unit={this.props.unit} humidity={day.main.humidity}/>;
+      const temp = Math.round(day.main.temp);
+      return <Day key={i} description={day.weather[0].main} temp={temp} unit={this.props.unit} humidity={day.main.humidity}/>;
     });
     return dayElems;
   }

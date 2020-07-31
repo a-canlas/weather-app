@@ -223,10 +223,11 @@ class Forecast extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   addDays() {
     const list = this.props.five;
     const dayElems = list.map((day, i) => {
+      const temp = Math.round(day.main.temp);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Day__WEBPACK_IMPORTED_MODULE_1__["default"], {
         key: i,
         description: day.weather[0].main,
-        temp: day.main.temp,
+        temp: temp,
         unit: this.props.unit,
         humidity: day.main.humidity
       });
