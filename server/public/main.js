@@ -131,6 +131,10 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
+  componentDidMount() {
+    this.handleSearch('torrance');
+  }
+
   handleSearch(city) {
     const key = _apis__WEBPACK_IMPORTED_MODULE_3___default.a.weather;
     const unit = this.state.isCelsius ? 'metric' : 'imperial';
@@ -145,29 +149,24 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   render() {
-    // if (this.state.weatherData === null) {
-    //   return (
-    //     <React.Fragment>
-    //       <p>Weather App</p>
-    //       <SearchForm receiveCity={this.handleSearch}/>
-    //       <p>Enter a city in the input above</p>
-    //     </React.Fragment>
-    //   );
-    // }
-    // const location = this.state.weatherData.name;
-    // const description = this.state.weatherData.weather[0].main;
-    // const temp = this.state.weatherData.main.temp;
-    // const unit = this.state.isCelsius ? 'C' : 'F';
-    // return (
+    if (this.state.fullData === null) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        receiveCity: this.handleSearch
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Enter a city in the input above"));
+    }
+
+    const five = [...this.state.fiveDay]; // const unit = this.state.isCelsius ? 'C' : 'F';
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      receiveCity: this.handleSearch
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Forecast__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      five: five
+    })); // return (
     //   <React.Fragment>
     //     <p>Weather App</p>
     //     <SearchForm receiveCity={this.handleSearch}/>
-    //     <Forecast location={location} description={description} temp={temp} unit={unit}/>
     //   </React.Fragment>
     // );
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      receiveCity: this.handleSearch
-    }));
   }
 
 }
