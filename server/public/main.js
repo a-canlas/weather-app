@@ -199,13 +199,16 @@ function Day(props) {
   const dt = props.dt;
   const weekday = dt * 1000;
   newDate.setTime(weekday);
+  const iconClass = `owf owf-${props.icon} owf-5x`;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-sm-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: "card-title"
-  }, moment__WEBPACK_IMPORTED_MODULE_1___default()(newDate).format('dddd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.temp, "\xB0 ", props.unit), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Humidity: ", props.humidity, "%"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.description)));
+  }, moment__WEBPACK_IMPORTED_MODULE_1___default()(newDate).format('dddd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: iconClass
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.temp, "\xB0 ", props.unit), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Humidity: ", props.humidity, "%"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.description)));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Day);
@@ -244,7 +247,8 @@ class Forecast extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
         temp: temp,
         unit: this.props.unit,
         humidity: day.main.humidity,
-        dt: dt
+        dt: dt,
+        icon: day.weather[0].id
       });
     });
     return dayElems;
