@@ -10,7 +10,8 @@ function Day(props) {
     <div className="col-sm-2">
       <div className="card">
         <h3 className="card-title">{moment(newDate).format('dddd')}</h3>
-        <p>{props.temp}&deg; {props.unit} &#124; Humidity: {props.humidity}&#37;</p>
+        <h2>{props.temp}&deg; {props.unit}</h2>
+        <p>Humidity: {props.humidity}&#37;</p>
         <p>{props.description}</p>
 
       </div>

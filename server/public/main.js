@@ -205,7 +205,7 @@ function Day(props) {
     className: "card"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     className: "card-title"
-  }, moment__WEBPACK_IMPORTED_MODULE_1___default()(newDate).format('dddd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.temp, "\xB0 ", props.unit, " | Humidity: ", props.humidity, "%"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.description)));
+  }, moment__WEBPACK_IMPORTED_MODULE_1___default()(newDate).format('dddd')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, props.temp, "\xB0 ", props.unit), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Humidity: ", props.humidity, "%"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.description)));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Day);
