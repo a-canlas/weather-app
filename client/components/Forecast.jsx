@@ -19,8 +19,14 @@ class Forecast extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h2>Forecast for {this.props.location}</h2>
-        {this.addDays()}
+        <div className="container">
+          <h2 className="display-1 jumbotron">Forecast for {this.props.location}</h2>
+          <div className="row justify-content-center">
+            {this.addDays()}
+
+          </div>
+
+        </div>
 
       </React.Fragment>
     );
