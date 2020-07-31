@@ -44,11 +44,12 @@ class App extends React.Component {
     }
     const five = [...this.state.fiveDay];
     const unit = this.state.isCelsius ? 'C' : 'F';
+    const location = this.state.fullData.city.name;
     return (
       <React.Fragment>
         <p>Weather App</p>
         <SearchForm receiveCity={this.handleSearch}/>
-        <Forecast five={five} unit={unit}/>
+        <Forecast five={five} unit={unit} location={location}/>
       </React.Fragment>
     );
 

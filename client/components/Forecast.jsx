@@ -18,7 +18,7 @@ class Forecast extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h2>Current Conditions for Here</h2>
+        <h2>Forecast for {this.props.location}</h2>
         {this.addDays()}
 
       </React.Fragment>
