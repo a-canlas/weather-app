@@ -7,27 +7,33 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weatherData: null,
+      fullData: null,
+      fiveDay: null,
       isCelsius: false
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
 
+  componentDidMount() {
+    this.handleSearch('torrance');
+  }
+
   handleSearch(city) {
     const key = apiKey.weather;
     const unit = this.state.isCelsius ? 'metric' : 'imperial';
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${unit}`;
+    const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=${unit}`;
     fetch(url)
       .then(result => result.json())
       .then(result => {
-        this.setState({ weatherData: result });
+        const fiveDay = result.list.filter(day => day.dt_txt.includes('21:00:00'));
+        this.setState({ fullData: result, fiveDay: fiveDay });
       })
       .catch(err => console.error(err));
 
   }
 
   render() {
-    if (this.state.weatherData === null) {
+    if (this.state.fullData === null) {
       return (
         <React.Fragment>
           <p>Weather App</p>
@@ -36,17 +42,17 @@ class App extends React.Component {
         </React.Fragment>
       );
     }
-    const location = this.state.weatherData.name;
-    const description = this.state.weatherData.weather[0].main;
-    const temp = this.state.weatherData.main.temp;
+    const five = [...this.state.fiveDay];
     const unit = this.state.isCelsius ? 'C' : 'F';
+    const location = this.state.fullData.city.name;
     return (
       <React.Fragment>
         <p>Weather App</p>
         <SearchForm receiveCity={this.handleSearch}/>
-        <Forecast location={location} description={description} temp={temp} unit={unit}/>
+        <Forecast five={five} unit={unit} location={location}/>
       </React.Fragment>
     );
+
     // return (
     //   <React.Fragment>
     //     <p>Weather App</p>

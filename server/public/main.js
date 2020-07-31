@@ -124,41 +124,46 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weatherData: null,
+      fullData: null,
+      fiveDay: null,
       isCelsius: false
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
 
+  componentDidMount() {
+    this.handleSearch('torrance');
+  }
+
   handleSearch(city) {
     const key = _apis__WEBPACK_IMPORTED_MODULE_3___default.a.weather;
     const unit = this.state.isCelsius ? 'metric' : 'imperial';
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${unit}`;
+    const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=${unit}`;
     fetch(url).then(result => result.json()).then(result => {
+      const fiveDay = result.list.filter(day => day.dt_txt.includes('21:00:00'));
       this.setState({
-        weatherData: result
+        fullData: result,
+        fiveDay: fiveDay
       });
     }).catch(err => console.error(err));
   }
 
   render() {
-    if (this.state.weatherData === null) {
+    if (this.state.fullData === null) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
         receiveCity: this.handleSearch
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Enter a city in the input above"));
     }
 
-    const location = this.state.weatherData.name;
-    const description = this.state.weatherData.weather[0].main;
-    const temp = this.state.weatherData.main.temp;
+    const five = [...this.state.fiveDay];
     const unit = this.state.isCelsius ? 'C' : 'F';
+    const location = this.state.fullData.city.name;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
       receiveCity: this.handleSearch
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Forecast__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      location: location,
-      description: description,
-      temp: temp,
-      unit: unit
+      five: five,
+      unit: unit,
+      location: location
     })); // return (
     //   <React.Fragment>
     //     <p>Weather App</p>
@@ -173,6 +178,27 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 /***/ }),
 
+/***/ "./client/components/Day.jsx":
+/*!***********************************!*\
+  !*** ./client/components/Day.jsx ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function Day(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.temp, "\xB0 ", props.unit, " | Humidity: ", props.humidity, "%"));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Day);
+
+/***/ }),
+
 /***/ "./client/components/Forecast.jsx":
 /*!****************************************!*\
   !*** ./client/components/Forecast.jsx ***!
@@ -184,10 +210,35 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Day__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Day */ "./client/components/Day.jsx");
 
 
-function Forecast(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Current Conditions for ", props.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.temp, "\xB0 ", props.unit));
+
+class Forecast extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+    this.addDays = this.addDays.bind(this);
+  }
+
+  addDays() {
+    const list = this.props.five;
+    const dayElems = list.map((day, i) => {
+      const temp = Math.round(day.main.temp);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Day__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        key: i,
+        description: day.weather[0].main,
+        temp: temp,
+        unit: this.props.unit,
+        humidity: day.main.humidity
+      });
+    });
+    return dayElems;
+  }
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Forecast for ", this.props.location), this.addDays());
+  }
+
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Forecast);
@@ -236,6 +287,9 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
     }
 
     this.props.receiveCity(wrappedCity);
+    this.setState({
+      city: ''
+    });
   }
 
   render() {

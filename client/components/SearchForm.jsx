@@ -22,6 +22,7 @@ class SearchForm extends React.Component {
       return;
     }
     this.props.receiveCity(wrappedCity);
+    this.setState({ city: '' });
   }
 
   render() {
