@@ -30,7 +30,8 @@ class SearchForm extends React.Component {
       <React.Fragment>
         <form className="form-inline" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <input type="text" id="city" className="form-control" name="city" value={this.state.city} onChange={this.updateText}></input>
+            <label htmlFor="city">City Name: </label>
+            <input type="text" id="city" className="form-control" name="city" value={this.state.city} placeholder="Enter a city name" onChange={this.updateText}></input>
             <button className="btn btn-primary" type="submit" id="submitBtn">Submit</button>
 
           </div>
