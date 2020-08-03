@@ -28,10 +28,10 @@ class SearchForm extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <form onSubmit={this.handleSubmit}>
+        <form className="form-inline" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <input type="text" id="city" name="city" value={this.state.city} onChange={this.updateText}></input>
-            <button type="submit" id="submitBtn">Submit</button>
+            <input type="text" id="city" className="form-control" name="city" value={this.state.city} onChange={this.updateText}></input>
+            <button className="btn btn-primary" type="submit" id="submitBtn">Submit</button>
 
           </div>
         </form>

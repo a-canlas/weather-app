@@ -321,16 +321,19 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
 
   render() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "form-inline",
       onSubmit: this.handleSubmit
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "form-group"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "text",
       id: "city",
+      className: "form-control",
       name: "city",
       value: this.state.city,
       onChange: this.updateText
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "btn btn-primary",
       type: "submit",
       id: "submitBtn"
     }, "Submit"))));
