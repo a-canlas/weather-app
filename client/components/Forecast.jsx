@@ -20,13 +20,11 @@ class Forecast extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container">
-          <h2 className="display-1 jumbotron">5 Day Forecast</h2>
-          <h4 className="display-4 text-muted">{this.props.location}</h4>
-          <div className="row justify-content-center">
-            {this.addDays()}
 
-          </div>
+        <h2 className="display-1 jumbotron">5 Day Forecast</h2>
+        <h4 className="display-4 text-muted">{this.props.location}</h4>
+        <div className="row justify-content-center">
+          {this.addDays()}
 
         </div>
 
