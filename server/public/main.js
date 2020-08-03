@@ -322,6 +322,8 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
   render() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
       onSubmit: this.handleSubmit
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "form-group"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "text",
       id: "city",
@@ -331,7 +333,7 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "submit",
       id: "submitBtn"
-    }, "Submit")));
+    }, "Submit"))));
   }
 
 }

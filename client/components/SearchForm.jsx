@@ -29,8 +29,11 @@ class SearchForm extends React.Component {
     return (
       <React.Fragment>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" id="city" name="city" value={this.state.city} onChange={this.updateText}></input>
-          <button type="submit" id="submitBtn">Submit</button>
+          <div className="form-group">
+            <input type="text" id="city" name="city" value={this.state.city} onChange={this.updateText}></input>
+            <button type="submit" id="submitBtn">Submit</button>
+
+          </div>
         </form>
       </React.Fragment>
     );
