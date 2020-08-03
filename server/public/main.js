@@ -336,7 +336,7 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
       placeholder: "Enter a city name",
       onChange: this.updateText
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "btn btn-primary",
+      className: "btn btn-dark",
       type: "submit",
       id: "submitBtn"
     }, "Submit"))));

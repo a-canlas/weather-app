@@ -32,7 +32,7 @@ class SearchForm extends React.Component {
           <div className="form-group">
             <label htmlFor="city">City Name: </label>
             <input type="text" id="city" className="form-control mx-1" name="city" value={this.state.city} placeholder="Enter a city name" onChange={this.updateText}></input>
-            <button className="btn btn-primary" type="submit" id="submitBtn">Submit</button>
+            <button className="btn btn-dark" type="submit" id="submitBtn">Submit</button>
 
           </div>
         </form>
