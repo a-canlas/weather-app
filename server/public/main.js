@@ -160,7 +160,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     const location = this.state.fullData.city.name;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "container"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
       receiveCity: this.handleSearch
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Forecast__WEBPACK_IMPORTED_MODULE_2__["default"], {
       five: five,
@@ -321,7 +321,7 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
 
   render() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-      className: "form-inline",
+      className: "form-inline mb-1",
       onSubmit: this.handleSubmit
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "form-group"
@@ -330,7 +330,7 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
     }, "City Name: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "text",
       id: "city",
-      className: "form-control",
+      className: "form-control mx-1",
       name: "city",
       value: this.state.city,
       placeholder: "Enter a city name",

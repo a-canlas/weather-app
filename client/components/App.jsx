@@ -48,7 +48,6 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className="container">
-          <p>Weather App</p>
           <SearchForm receiveCity={this.handleSearch}/>
           <Forecast five={five} unit={unit} location={location}/>
         </div>
