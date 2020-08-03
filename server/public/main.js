@@ -158,13 +158,15 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     const five = [...this.state.fiveDay];
     const unit = this.state.isCelsius ? 'C' : 'F';
     const location = this.state.fullData.city.name;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Weather App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SearchForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
       receiveCity: this.handleSearch
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Forecast__WEBPACK_IMPORTED_MODULE_2__["default"], {
       five: five,
       unit: unit,
       location: location
-    })); // return (
+    }))); // return (
     //   <React.Fragment>
     //     <p>Weather App</p>
     //     <SearchForm receiveCity={this.handleSearch}/>
@@ -255,15 +257,13 @@ class Forecast extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   render() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "container"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "display-1 jumbotron"
     }, "5 Day Forecast"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
       className: "display-4 text-muted"
     }, this.props.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "row justify-content-center"
-    }, this.addDays())));
+    }, this.addDays()));
   }
 
 }
@@ -321,17 +321,25 @@ class SearchForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component 
 
   render() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      className: "form-inline mb-1",
       onSubmit: this.handleSubmit
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "form-group"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      htmlFor: "city"
+    }, "City Name: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "text",
       id: "city",
+      className: "form-control mx-1",
       name: "city",
       value: this.state.city,
+      placeholder: "Enter a city name",
       onChange: this.updateText
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "btn btn-dark",
       type: "submit",
       id: "submitBtn"
-    }, "Submit")));
+    }, "Submit"))));
   }
 
 }

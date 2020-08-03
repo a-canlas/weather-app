@@ -47,9 +47,10 @@ class App extends React.Component {
     const location = this.state.fullData.city.name;
     return (
       <React.Fragment>
-        <p>Weather App</p>
-        <SearchForm receiveCity={this.handleSearch}/>
-        <Forecast five={five} unit={unit} location={location}/>
+        <div className="container">
+          <SearchForm receiveCity={this.handleSearch}/>
+          <Forecast five={five} unit={unit} location={location}/>
+        </div>
       </React.Fragment>
     );
 
